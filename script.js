@@ -1,5 +1,5 @@
 const sortableList = document.querySelector(".playlist");
-const items = sortableList.querySelectorAll(".item + .playlist-item");
+const items = sortableList.querySelectorAll(".playlist-item");
 
 items.forEach(item => {
     item.addEventListener("dragstart", () => {
@@ -19,7 +19,15 @@ const drag = (e) => {
         return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
 
     });
-sortableList.insertBefore(draggingItem, nextSibling);
+
+    if (nextSibling) {
+        sortableList.insertBefore(draggingItem, nextSibling);
+      } else {
+        sortableList.appendChild(draggingItem);
+      }
+      
+    // sortableList.insertBefore(draggingItem, nextSibling);
+
 }
 sortableList.addEventListener("dragover", drag);
 sortableList.addEventListener("dragenter", e => e.preventDefault());

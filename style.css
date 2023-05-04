@@ -13,7 +13,7 @@
     margin:0 auto;
     height:100vh;
   }
-  .item.dragging {
+  .playlist-item.dragging {
     opacity: 0.6;
   }
   
@@ -48,3 +48,8 @@
     margin-left: 10px;
   }
   
+  div.active{
+    background-color: rgba(144, 233, 115, 0.533);
+    transition: scale(1.03);
+    margin-bottom: .8rem;
+}
